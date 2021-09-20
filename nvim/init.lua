@@ -1,11 +1,25 @@
-require('plugins')
-require('options')
-require('theme-config')
-require('lualine-config')
-require('bufferline-config')
-require('treesitter-config')
-require('nvim-tree-config')
-require('autopairs-config')
-require('lsp-config')
-require('rnvimr-config')
-vim.cmd('colorscheme neodark')
+--[[
+  ██╗███╗   ██╗██╗████████╗██╗     ██╗   ██╗ █████╗
+  ██║████╗  ██║██║╚══██╔══╝██║     ██║   ██║██╔══██╗
+  ██║██╔██╗ ██║██║   ██║   ██║     ██║   ██║███████║
+  ██║██║╚██╗██║██║   ██║   ██║     ██║   ██║██╔══██║
+  ██║██║ ╚████║██║   ██║██╗███████╗╚██████╔╝██║  ██║
+  ╚═╝╚═╝  ╚═══╝╚═╝   ╚═╝╚═╝╚══════╝ ╚═════╝ ╚═╝  ╚═╝
+Neovim init file
+Version: 0.0.1 - 2021/09/20
+Maintainer: nikosNalmpantis
+Website: https://github.com/nikosNalmpantis/neovim-lua
+--]]
+
+-----------------------------------------------------------
+-- Import Lua modules
+-----------------------------------------------------------
+require('plugins')              -- plugins
+require('options')              -- basic settings
+require('theme-config')         -- theme
+require('lualine-config')       -- statusline
+require('bufferline-config')    -- bufferline
+require('treesitter-config')    -- treesitter
+require('autopairs-config')     -- autopairs
+require('lsp-config')           -- LSP settings
+require('rnvimr-config')        -- ranger interface
