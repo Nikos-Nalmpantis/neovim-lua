@@ -16,6 +16,7 @@ Website: https://github.com/nikosNalmpantis/neovim-lua
 -----------------------------------------------------------
 require('plugins')              -- plugins
 require('options')              -- basic settings
+require('keymaps')              -- keymaps
 require('theme-config')         -- theme
 require('lualine-config')       -- statusline
 require('bufferline-config')    -- bufferline

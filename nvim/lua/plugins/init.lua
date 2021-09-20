@@ -31,6 +31,8 @@ return require('packer').startup(function()
 
     use 'kevinhwang91/rnvimr'
 
+    use 'preservim/nerdcommenter'
+
     -- Themes
     use 'KeitaNakamura/neodark.vim'
 end)
