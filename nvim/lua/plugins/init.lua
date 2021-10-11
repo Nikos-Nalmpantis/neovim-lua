@@ -26,12 +26,19 @@ return require('packer').startup(function()
 
     use 'hrsh7th/nvim-cmp' -- Autocompletion plugin
     use 'hrsh7th/cmp-nvim-lsp' -- LSP source for nvim-cmp
-    use 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp
-    use 'L3MON4D3/LuaSnip' -- Snippets plugin
+    use 'hrsh7th/cmp-buffer'
+
+    use 'hrsh7th/cmp-vsnip'
+    use 'hrsh7th/vim-vsnip'
+
+    --use 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp
+    --use 'L3MON4D3/LuaSnip' -- Snippets plugin
 
     use 'kevinhwang91/rnvimr'
 
     use 'preservim/nerdcommenter'
+
+    use "onsails/lspkind-nvim"
 
     -- Themes
     use 'KeitaNakamura/neodark.vim'

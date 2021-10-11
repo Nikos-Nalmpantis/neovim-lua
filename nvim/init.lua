@@ -22,5 +22,6 @@ require('lualine-config')       -- statusline
 require('bufferline-config')    -- bufferline
 require('treesitter-config')    -- treesitter
 require('autopairs-config')     -- autopairs
-require('lsp-config')           -- LSP settings
+-- require('lsp-config')           -- LSP settings
+require('cmp-config')           -- cmp settings
 require('rnvimr-config')        -- ranger interface
