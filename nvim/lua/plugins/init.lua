@@ -40,6 +40,8 @@ return require('packer').startup(function()
 
     use "onsails/lspkind-nvim"
 
+    use "github/copilot.vim"
+
     -- Themes
     use 'KeitaNakamura/neodark.vim'
 end)
