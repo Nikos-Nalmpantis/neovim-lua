@@ -57,11 +57,12 @@ cmp.setup({
   sources = {
     { name = 'nvim_lsp' },
     { name = 'vsnip' },
-    { name = 'pathh' },
+    { name = 'path' },
     { name = 'buffer' },
   },
   formatting = {
-    format = lspkind.cmp_format({with_text = true, maxwidth = 50})
+    format = lspkind.cmp_format({with_text = true, maxwidth = 50}),
+    path = "[Path]",
   }
 })
 

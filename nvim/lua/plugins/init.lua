@@ -42,6 +42,24 @@ return require('packer').startup(function()
 
     use "github/copilot.vim"
 
+    use {
+      "iamcco/markdown-preview.nvim",
+      run = function() vim.fn['mkdp#util#install']() end,
+      ft = {'markdown'}
+    }
+
+    -- Fuzzy path completion
+    use 'hrsh7th/cmp-path'
+
+    use {'romgrk/fzy-lua-native', run = 'make'}
+    use {'tzachar/fuzzy.nvim', requires = {'romgrk/fzy-lua-native'}}
+    use {'tzachar/cmp-fuzzy-path', requires = {'hrsh7th/nvim-cmp', 'hrsh7th/cmp-path', 'tzachar/fuzzy.nvim'}}
+    use {'tzachar/cmp-fuzzy-buffer', requires = {'hrsh7th/nvim-cmp', 'tzachar/fuzzy.nvim'}}
+
     -- Themes
-    use 'KeitaNakamura/neodark.vim'
+    -- use 'KeitaNakamura/neodark.vim'
+    use({
+      "catppuccin/nvim",
+      as = "catppuccin"
+    })
 end)
