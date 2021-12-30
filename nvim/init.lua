@@ -1,27 +1,21 @@
---[[
-  ██╗███╗   ██╗██╗████████╗██╗     ██╗   ██╗ █████╗
-  ██║████╗  ██║██║╚══██╔══╝██║     ██║   ██║██╔══██╗
-  ██║██╔██╗ ██║██║   ██║   ██║     ██║   ██║███████║
-  ██║██║╚██╗██║██║   ██║   ██║     ██║   ██║██╔══██║
-  ██║██║ ╚████║██║   ██║██╗███████╗╚██████╔╝██║  ██║
-  ╚═╝╚═╝  ╚═══╝╚═╝   ╚═╝╚═╝╚══════╝ ╚═════╝ ╚═╝  ╚═╝
-Neovim init file
-Version: 0.0.1 - 2021/09/20
-Maintainer: nikosNalmpantis
-Website: https://github.com/nikosNalmpantis/neovim-lua
---]]
-
------------------------------------------------------------
--- Import Lua modules
------------------------------------------------------------
-require('plugins')              -- plugins
-require('options')              -- basic settings
-require('keymaps')              -- keymaps
-require('theme-config')         -- theme
-require('lualine-config')       -- statusline
-require('bufferline-config')    -- bufferline
-require('treesitter-config')    -- treesitter
-require('autopairs-config')     -- autopairs
-require('cmp-config')           -- cmp settings
-require('rnvimr-config')        -- ranger interface
--- require('lsp-config')           -- LSP settings
+require "user.options"
+require "user.keymaps"
+require "user.plugins"
+require "user.colorscheme"
+require "user.cmp"
+require "user.lsp"
+require "user.telescope"
+require "user.treesitter"
+require "user.autopairs"
+require "user.comment"
+require "user.gitsigns"
+require "user.nvim-tree"
+require "user.bufferline"
+require "user.lualine"
+require "user.toggleterm"
+require "user.project"
+require "user.impatient"
+-- require "user.indentline"
+require "user.alpha"
+require "user.whichkey"
+require "user.autocommands"
