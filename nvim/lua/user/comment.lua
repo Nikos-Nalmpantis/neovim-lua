@@ -19,4 +19,12 @@ comment.setup {
       location = location,
     }
   end,
+  toggler = {
+    line = "mc",
+    block = "mb",
+  },
+  opleader = {
+    line = 'mlc',
+    block = 'mbc',
+  },
 }
