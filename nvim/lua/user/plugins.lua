@@ -48,20 +48,27 @@ return packer.startup(function(use)
   use "numToStr/Comment.nvim" -- Easily comment stuff
   use "kyazdani42/nvim-web-devicons"
   use "kyazdani42/nvim-tree.lua"
-  use "Pocco81/true-zen.nvim"
-  use({
+  use "Pocco81/true-zen.nvim" -- Focus mode
+  use({ -- Markdown Preview
     "iamcco/markdown-preview.nvim",
     run = function() vim.fn["mkdp#util#install"]() end,
   })
+  use {
+    "danymat/neogen",
+    requires = "nvim-treesitter/nvim-treesitter",
+    -- Uncomment next line if you want to follow only stable versions
+    -- tag = "*"
+  }
 
   -- Colorschemes
   -- use "lunarvim/darkplus.nvim"
   -- use "marko-cerovac/material.nvim"
-  use({
-	"catppuccin/nvim",
-	as = "catppuccin",
-    run = ":CatppuccinCompile"
-  })
+  use "rebelot/kanagawa.nvim"
+ --  use({
+	-- "catppuccin/nvim",
+	-- as = "catppuccin",
+ --    run = ":CatppuccinCompile"
+ --  })
 
   -- cmp plugins
   use "hrsh7th/nvim-cmp" -- The completion plugin
