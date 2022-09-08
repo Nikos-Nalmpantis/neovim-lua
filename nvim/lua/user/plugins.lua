@@ -49,6 +49,7 @@ return packer.startup(function(use)
   use "kyazdani42/nvim-web-devicons"
   use "kyazdani42/nvim-tree.lua"
   use "Pocco81/true-zen.nvim" -- Focus mode
+  use "f-person/git-blame.nvim"
   use({ -- Markdown Preview
     "iamcco/markdown-preview.nvim",
     run = function() vim.fn["mkdp#util#install"]() end,
