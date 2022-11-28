@@ -60,6 +60,7 @@ return packer.startup(function(use)
     -- Uncomment next line if you want to follow only stable versions
     -- tag = "*"
   }
+  use "rmagatti/goto-preview" -- Preview window for definitions
 
   -- Colorschemes
   -- use "lunarvim/darkplus.nvim"

@@ -106,7 +106,7 @@ local mappings = {
     u = { "<cmd>PackerUpdate<cr>", "Update" },
   },
 
-  g = {
+  G = {
     name = "Git",
     g = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
     j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
@@ -127,6 +127,15 @@ local mappings = {
       "<cmd>Gitsigns diffthis HEAD<cr>",
       "Diff",
     },
+  },
+
+  g = {
+    name = "goto-preview",
+    d = { "<cmd>lua require('goto-preview').goto_preview_definition()<CR>", "Preview Definition"},
+    t = { "<cmd>lua require('goto-preview').goto_preview_type_definition()<CR>", "Preview Type Definition"},
+    i = { "<cmd>lua require('goto-preview').goto_preview_implementation()<CR>", "Preview Implementation"},
+    p = { "<cmd>lua require('goto-preview').close_all_win()<CR>", "Close All Windows"},
+    r = { "<cmd>lua require('goto-preview').goto_preview_references()<CR>", "Preview References"},
   },
 
   l = {
