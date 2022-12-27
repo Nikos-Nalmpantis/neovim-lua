@@ -74,3 +74,6 @@ keymap("n", "<c-t>", "<cmd>Telescope live_grep<cr>", opts)
 -- Vertical Movements
 keymap("n", "<C-d>", "<C-d>zz", opts)
 keymap("n", "<C-u>", "<C-u>zz", opts)
+
+-- Pastes over a word without loosing yanked word
+keymap("x", "<leader>p", "\"_dP", opts)
