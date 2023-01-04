@@ -28,6 +28,40 @@ lazy.setup({
       vim.cmd([[colorscheme kanagawa]])
     end,
   },
+
+  -- Simple plugins
+  "goolord/alpha-nvim",
+  "windwp/nvim-autopairs", -- Autopairs, integrates with both cmp and treesitter
+  "kyazdani42/nvim-web-devicons", -- Icons for nvim-tree
+  "kyazdani42/nvim-tree.lua",
+  "akinsho/bufferline.nvim", -- Buffer line
+  "moll/vim-bbye", -- Bbye allows you to do delete buffers (close files) 
+                   -- without closing your windows or messing up your layout
+  "numToStr/Comment.nvim",
+  "lewis6991/gitsigns.nvim",
+  "rmagatti/goto-preview", -- Preview window for definitions
+  "lukas-reineke/indent-blankline.nvim", -- Indents Balnklines
+  "nvim-lualine/lualine.nvim", -- Status line
+  { -- Documentation generation
+    "danymat/neogen",
+    dependencies = "nvim-treesitter/nvim-treesitter",
+    -- Uncomment next line if you want to follow only stable versions
+    version = "*"
+  },
+  "ahmedkhalf/project.nvim", -- Project managment utils
+  "akinsho/toggleterm.nvim", -- Plugin to persist and toggle multiple
+  "Pocco81/true-zen.nvim", -- Focus mode
+  "folke/which-key.nvim", -- Key bindings previes
+  { -- Markdown Preview
+    "iamcco/markdown-preview.nvim",
+    run = function() vim.fn["mkdp#util#install"]() end,
+  },
+
+  -- Telescope
+  "nvim-lua/plenary.nvim",
+  "nvim-telescope/telescope.nvim",
+  "nvim-telescope/telescope-media-files.nvim",
+
   -- LSP
   {
     'VonHeikemen/lsp-zero.nvim',
@@ -52,10 +86,7 @@ lazy.setup({
     'glepnir/lspsaga.nvim',
     branch = 'main',
   },
-  -- Simple plugins
-  "goolord/alpha-nvim",
-  "windwp/nvim-autopairs", -- Autopairs, integrates with both cmp and treesitter
-    -- Treesitter
+  -- Treesitter
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
