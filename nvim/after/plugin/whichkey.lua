@@ -169,6 +169,14 @@ local mappings = {
       "Workspace Symbols",
     },
   },
+
+  n = {
+    name = "Zen",
+    f = { "<cmd>TZFocus<cr>", "Focus" },
+    m = { "<cmd>TZMinimalist<cr>", "Minimalist" },
+    a = { "<cmd>TZAtaraxis<cr>", "Ataraxis" },
+  },
+
   s = {
     name = "Search",
     b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
