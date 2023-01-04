@@ -45,5 +45,9 @@ lazy.setup({
       'L3MON4D3/LuaSnip',
       'rafamadriz/friendly-snippets',
     }
-  }
+  },
+  {
+    'glepnir/lspsaga.nvim',
+    branch = 'main',
+  },
 })
