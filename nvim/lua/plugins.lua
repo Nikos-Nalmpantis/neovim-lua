@@ -18,6 +18,7 @@ if not ok then
 end
 
 lazy.setup({
+  -- Colorscheme
   {
     'rebelot/kanagawa.nvim',
     lazy = false,
@@ -27,6 +28,7 @@ lazy.setup({
       vim.cmd([[colorscheme kanagawa]])
     end,
   },
+  -- LSP
   {
     'VonHeikemen/lsp-zero.nvim',
     dependencies = {
@@ -50,4 +52,14 @@ lazy.setup({
     'glepnir/lspsaga.nvim',
     branch = 'main',
   },
+  -- Simple plugins
+  "goolord/alpha-nvim",
+  "windwp/nvim-autopairs", -- Autopairs, integrates with both cmp and treesitter
+    -- Treesitter
+  {
+    "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate",
+  },
+  "p00f/nvim-ts-rainbow",
+  "JoosepAlviste/nvim-ts-context-commentstring",
 })
