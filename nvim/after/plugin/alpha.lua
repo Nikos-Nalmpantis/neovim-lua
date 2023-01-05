@@ -5,12 +5,18 @@ end
 
 local dashboard = require("alpha.themes.dashboard")
 dashboard.section.header.val = {
-	[[                               __                ]],
-	[[  ___     ___    ___   __  __ /\_\    ___ ___    ]],
-	[[ / _ `\  / __`\ / __`\/\ \/\ \\/\ \  / __` __`\  ]],
-	[[/\ \/\ \/\  __//\ \_\ \ \ \_/ |\ \ \/\ \/\ \/\ \ ]],
-	[[\ \_\ \_\ \____\ \____/\ \___/  \ \_\ \_\ \_\ \_\]],
-	[[ \/_/\/_/\/____/\/___/  \/__/    \/_/\/_/\/_/\/_/]],
+  [[                                                          ]],
+  [[                                                          ]],
+  [[ █     █░ ██▓▒███████▒▒███████▒ ▄▄▄       ██▀███  ▓█████▄ ]],
+  [[▓█░ █ ░█░▓██▒▒ ▒ ▒ ▄▀░▒ ▒ ▒ ▄▀░▒████▄    ▓██ ▒ ██▒▒██▀ ██▌]],
+  [[▒█░ █ ░█ ▒██▒░ ▒ ▄▀▒░ ░ ▒ ▄▀▒░ ▒██  ▀█▄  ▓██ ░▄█ ▒░██   █▌]],
+  [[░█░ █ ░█ ░██░  ▄▀▒   ░  ▄▀▒   ░░██▄▄▄▄██ ▒██▀▀█▄  ░▓█▄   ▌]],
+  [[░░██▒██▓ ░██░▒███████▒▒███████▒ ▓█   ▓██▒░██▓ ▒██▒░▒████▓ ]],
+  [[░ ▓░▒ ▒  ░▓  ░▒▒ ▓░▒░▒░▒▒ ▓░▒░▒ ▒▒   ▓▒█░░ ▒▓ ░▒▓░ ▒▒▓  ▒ ]],
+  [[  ▒ ░ ░   ▒ ░░░▒ ▒ ░ ▒░░▒ ▒ ░ ▒  ▒   ▒▒ ░  ░▒ ░ ▒░ ░ ▒  ▒ ]],
+  [[  ░   ░   ▒ ░░ ░ ░ ░ ░░ ░ ░ ░ ░  ░   ▒     ░░   ░  ░ ░  ░ ]],
+  [[    ░     ░    ░ ░      ░ ░          ░  ░   ░        ░    ]],
+  [[             ░        ░                            ░      ]],
 }
 dashboard.section.buttons.val = {
 	dashboard.button("f", "  Find file", ":Telescope find_files <CR>"),
@@ -18,17 +24,31 @@ dashboard.section.buttons.val = {
 	dashboard.button("p", "  Find project", ":Telescope projects <CR>"),
 	dashboard.button("r", "  Recently used files", ":Telescope oldfiles <CR>"),
 	dashboard.button("t", "  Find text", ":Telescope live_grep <CR>"),
-	dashboard.button("c", "  Configuration", ":e ~/.config/nvim/init.lua <CR>"),
+	dashboard.button("c", "  Configuration", ":e ~/.config/nvim/lua/plugins.lua<CR>"),
 	dashboard.button("q", "  Quit Neovim", ":qa<CR>"),
 }
 
 local function footer()
--- NOTE: requires the fortune-mod package to work
-	-- local handle = io.popen("fortune")
-	-- local fortune = handle:read("*a")
-	-- handle:close()
-	-- return fortune
-	return "https://github.com/nikosNalmpantis"
+  local datetime = os.date "%d-%m-%Y %H:%M:%S"
+  local plugins_text = "  🧙"
+    .. "   v"
+    .. vim.version().major
+    .. "."
+    .. vim.version().minor
+    .. "."
+    .. vim.version().patch
+    .. "  ⏲ "
+    .. datetime
+    .. "  🧙"
+
+  -- Quote
+  local fortune = require "alpha.fortune"
+  local quote = table.concat(fortune(), "\n")
+  local github_uri = " https://github.com/nikosNalmpantis"
+
+  local footer_text = plugins_text .. "\n" .. quote .. "\n" .. github_uri
+
+  return footer_text
 end
 
 dashboard.section.footer.val = footer()
