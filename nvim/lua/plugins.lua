@@ -110,17 +110,4 @@ lazy.setup({
   },
   "p00f/nvim-ts-rainbow",
   "JoosepAlviste/nvim-ts-context-commentstring",
-
-  -- UI
-  {
-    "folke/noice.nvim",
-    dependencies = {
-      -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-      "MunifTanjim/nui.nvim",
-      -- OPTIONAL: is only needed, if you want to use the notification view.
-      "nvim-notify",
-      --   If not available, we use `mini` as the fallback
-      "rcarriga/nvim-notify",
-      }
-  },
 })
