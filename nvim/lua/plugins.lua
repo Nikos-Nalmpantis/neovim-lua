@@ -12,7 +12,7 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
-local ok, lazy = pcall(require, 'lazy')
+local ok, lazy = pcall(require, "lazy")
 if not ok then
   return
 end
@@ -20,7 +20,7 @@ end
 lazy.setup({
   -- Colorscheme
   {
-    'rebelot/kanagawa.nvim',
+    "rebelot/kanagawa.nvim",
     lazy = false,
     priority = 1000,
     config = function()
@@ -31,17 +31,33 @@ lazy.setup({
 
   -- Simple plugins
   "goolord/alpha-nvim",
-  "windwp/nvim-autopairs", -- Autopairs, integrates with both cmp and treesitter
-  "kyazdani42/nvim-web-devicons", -- Icons for nvim-tree
+  {
+    "windwp/nvim-autopairs", -- Autopairs, integrates with both cmp and treesitter
+    event = "InsertEnter"
+  },
   "kyazdani42/nvim-tree.lua",
   "akinsho/bufferline.nvim", -- Buffer line
   "moll/vim-bbye", -- Bbye allows you to do delete buffers (close files) 
                    -- without closing your windows or messing up your layout
-  "numToStr/Comment.nvim",
-  "lewis6991/gitsigns.nvim",
+  {
+    "numToStr/Comment.nvim",
+    event = "BufEnter"
+  },
+  {
+    "lewis6991/gitsigns.nvim",
+    event = "BufEnter"
+  },
   "rmagatti/goto-preview", -- Preview window for definitions
-  "lukas-reineke/indent-blankline.nvim", -- Indents Balnklines
-  "nvim-lualine/lualine.nvim", -- Status line
+  {
+    "lukas-reineke/indent-blankline.nvim", -- Indents Balnklines
+    event = "BufEnter",
+  },
+  {
+    "nvim-lualine/lualine.nvim", -- Status line
+    dependencies = {
+      "kyazdani42/nvim-web-devicons", -- Icons for nvim-tree
+    }
+  },
   { -- Documentation generation
     "danymat/neogen",
     dependencies = "nvim-treesitter/nvim-treesitter",
@@ -58,33 +74,33 @@ lazy.setup({
   },
 
   -- Telescope
-  "nvim-lua/plenary.nvim",
-  "nvim-telescope/telescope.nvim",
+  {
+    "nvim-telescope/telescope.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    }
+  },
   "nvim-telescope/telescope-media-files.nvim",
 
   -- LSP
   {
-    'VonHeikemen/lsp-zero.nvim',
+    "VonHeikemen/lsp-zero.nvim",
     dependencies = {
       -- LSP Support
-      'neovim/nvim-lspconfig',
-      'williamboman/mason.nvim',
-      'williamboman/mason-lspconfig.nvim',
+      "neovim/nvim-lspconfig",
+      "williamboman/mason.nvim",
+      "williamboman/mason-lspconfig.nvim",
       -- Autocompletion
-      'hrsh7th/nvim-cmp',
-      'hrsh7th/cmp-buffer',
-      'hrsh7th/cmp-path',
-      'saadparwaiz1/cmp_luasnip',
-      'hrsh7th/cmp-nvim-lsp',
-      'hrsh7th/cmp-nvim-lua',
+      "hrsh7th/nvim-cmp",
+      "hrsh7th/cmp-buffer",
+      "hrsh7th/cmp-path",
+      "saadparwaiz1/cmp_luasnip",
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-nvim-lua",
       -- Snippets
-      'L3MON4D3/LuaSnip',
-      'rafamadriz/friendly-snippets',
+      "L3MON4D3/LuaSnip",
+      "rafamadriz/friendly-snippets",
     }
-  },
-  {
-    'glepnir/lspsaga.nvim',
-    branch = 'main',
   },
   -- Treesitter
   {
