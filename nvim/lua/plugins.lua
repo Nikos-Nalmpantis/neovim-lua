@@ -70,7 +70,7 @@ lazy.setup({
   "folke/which-key.nvim", -- Key bindings previes
   { -- Markdown Preview
     "iamcco/markdown-preview.nvim",
-    run = function() vim.fn["mkdp#util#install"]() end,
+    build = function() vim.fn["mkdp#util#install"]() end,
   },
 
   -- Telescope
