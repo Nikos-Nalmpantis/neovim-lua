@@ -1,5 +1,5 @@
-local status_ok, gitblame = pcall(require, "gitblame")
-if not status_ok then
+local ok, gitblame = pcall(require, "gitblame")
+if not ok then
   return
 end
 

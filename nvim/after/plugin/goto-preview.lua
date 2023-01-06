@@ -1,5 +1,5 @@
-local status_ok, gotopreview = pcall(require, "goto-preview")
-if not status_ok then
+local ok, gotopreview = pcall(require, "goto-preview")
+if not ok then
 	return
 end
 

@@ -1,5 +1,5 @@
-local status_ok, true_zen = pcall(require, "true-zen")
-if not status_ok then
+local ok, true_zen = pcall(require, "true-zen")
+if not ok then
   return
 end
 

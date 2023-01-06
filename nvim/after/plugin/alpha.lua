@@ -1,5 +1,5 @@
-local status_ok, alpha = pcall(require, "alpha")
-if not status_ok then
+local ok, alpha = pcall(require, "alpha")
+if not ok then
 	return
 end
 
@@ -29,7 +29,8 @@ dashboard.section.buttons.val = {
 }
 
 local function footer()
-  local datetime = os.date "%d-%m-%Y %H:%M:%S"
+  local date= os.date "%d-%m-%Y"
+  local time = os.date "%H:%M:%S"
   local plugins_text = "  🧙"
     .. "   v"
     .. vim.version().major
@@ -37,16 +38,17 @@ local function footer()
     .. vim.version().minor
     .. "."
     .. vim.version().patch
+    .. "  📅 "
+    .. date
     .. "  ⏲ "
-    .. datetime
+    .. time
     .. "  🧙"
 
   -- Quote
   local fortune = require "alpha.fortune"
   local quote = table.concat(fortune(), "\n")
-  local github_uri = " https://github.com/nikosNalmpantis"
 
-  local footer_text = plugins_text .. "\n" .. quote .. "\n" .. github_uri
+  local footer_text = plugins_text .. "\n" .. quote
 
   return footer_text
 end

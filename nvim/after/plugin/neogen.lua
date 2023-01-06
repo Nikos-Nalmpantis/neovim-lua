@@ -1,6 +1,5 @@
--- Setup autopairs.
-local status_ok, neogen = pcall(require, "neogen")
-if not status_ok then
+local ok, neogen = pcall(require, "neogen")
+if not ok then
   return
 end
 
