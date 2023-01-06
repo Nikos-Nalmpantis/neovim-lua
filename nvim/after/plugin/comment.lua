@@ -20,11 +20,11 @@ comment.setup {
     }
   end,
   toggler = {
-    line = "mc",
-    block = "mb",
+    line = "<leader>/",
+    block = "<leader>/",
   },
   opleader = {
-    line = 'mlc',
-    block = 'mbc',
+    line = "<leader>/",
+    block = "<leader>/",
   },
 }
