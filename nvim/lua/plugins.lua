@@ -72,6 +72,7 @@ lazy.setup({
     "iamcco/markdown-preview.nvim",
     build = function() vim.fn["mkdp#util#install"]() end,
   },
+  "NvChad/nvim-colorizer.lua",
 
   -- Telescope
   {

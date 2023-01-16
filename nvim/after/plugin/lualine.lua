@@ -9,17 +9,17 @@ end
 -- Color table for highlights
 -- stylua: ignore
 local colors = {
-  bg       = '#202328',
-  fg       = '#bbc2cf',
-  yellow   = '#ECBE7B',
-  cyan     = '#008080',
-  darkblue = '#081633',
-  green    = '#98be65',
-  orange   = '#FF8800',
-  violet   = '#a9a1e1',
-  magenta  = '#c678dd',
-  blue     = '#51afef',
-  red      = '#ec5f67',
+  bg       = '#1F1F28',
+  fg       = '#DCD7BA',
+  yellow   = '#DCA561',
+  cyan     = '#7AA89F',
+  darkblue = '#252535',
+  green    = '#98BB6C',
+  orange   = '#FFA066',
+  violet   = '#957FB8',
+  magenta  = '#D27E99',
+  blue     = '#7E9CD8',
+  red      = '#E46876',
 }
 
 local conditions = {
@@ -85,7 +85,7 @@ ins_left {
   function()
     return '▊'
   end,
-  color = { fg = colors.blue }, -- Sets highlighting of component
+  color = { fg = colors.magenta }, -- Sets highlighting of component
   padding = { left = 0, right = 1 }, -- We don't need space before this
 }
 
@@ -97,7 +97,7 @@ ins_left {
   color = function()
     -- auto change color according to neovims mode
     local mode_color = {
-      n = colors.red,
+      n = colors.magenta,
       i = colors.green,
       v = colors.blue,
       [''] = colors.blue,
@@ -130,9 +130,24 @@ ins_left {
 }
 
 ins_left {
-  'filename',
-  cond = conditions.buffer_not_empty,
-  color = { fg = colors.magenta, gui = 'bold' },
+  -- Lsp server name .
+  function()
+    local msg = 'No Active Lsp'
+    local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
+    local clients = vim.lsp.get_active_clients()
+    if next(clients) == nil then
+      return msg
+    end
+    for _, client in ipairs(clients) do
+      local filetypes = client.config.filetypes
+      if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
+        return client.name
+      end
+    end
+    return msg
+  end,
+  icon = ' lsp:',
+  color = { fg = colors.violet },
 }
 
 ins_left { 'location' }
@@ -159,24 +174,9 @@ ins_left {
 }
 
 ins_left {
-  -- Lsp server name .
-  function()
-    local msg = 'No Active Lsp'
-    local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
-    local clients = vim.lsp.get_active_clients()
-    if next(clients) == nil then
-      return msg
-    end
-    for _, client in ipairs(clients) do
-      local filetypes = client.config.filetypes
-      if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
-        return client.name
-      end
-    end
-    return msg
-  end,
-  icon = ' LSP:',
-  color = { fg = '#ffffff', gui = 'bold' },
+  'filename',
+  cond = conditions.buffer_not_empty,
+  color = { fg = colors.magenta, gui = 'bold' },
 }
 
 -- Add components to right sections
@@ -216,7 +216,7 @@ ins_right {
   function()
     return '▊'
   end,
-  color = { fg = colors.blue },
+  color = { fg = colors.magenta },
   padding = { left = 1 },
 }
 
