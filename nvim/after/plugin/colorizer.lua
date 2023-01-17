@@ -3,4 +3,4 @@ if not ok then
   return
 end
 
-colorizer.setup()
+colorizer.detach_from_buffer(0)
