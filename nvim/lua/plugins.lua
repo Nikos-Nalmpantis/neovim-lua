@@ -60,6 +60,15 @@ lazy.setup({
   },
   "NvChad/nvim-colorizer.lua", -- Colorize hexes and color names
   "kdheepak/tabline.nvim",
+  {
+    "Exafunction/codeium.vim",
+    config = function ()
+      -- Change '<C-g>' here to any keycode you like.
+      vim.keymap.set("i", "<C-g>", function ()
+        return vim.fn["codeium#Accept"]()
+      end, { expr = true })
+    end
+  },
 
   -- Telescope
   {
