@@ -69,6 +69,14 @@ lazy.setup({
       end, { expr = true })
     end
   },
+  {
+    "mrcjkb/haskell-tools.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim", -- optional
+    },
+    version = "1.x.x", -- recommended
+  },
 
   -- Telescope
   {
