@@ -21,7 +21,14 @@ lazy.setup({
     "windwp/nvim-autopairs", -- Autopairs, integrates with both cmp and treesitter
     event = "InsertEnter"
   },
-  "kyazdani42/nvim-tree.lua",
+  {
+    "nvim-tree/nvim-tree.lua",
+    dependencies = {
+      "nvim-tree/nvim-web-devicons", -- optional, for file icons
+    },
+    version = "nightly", -- optional, updated every week. (see issue #1193)
+    event = "BufEnter"
+  },
   "akinsho/bufferline.nvim", -- Buffer line
   "moll/vim-bbye", -- Bbye allows you to do delete buffers (close files) 
                    -- without closing your windows or messing up your layout
@@ -41,7 +48,7 @@ lazy.setup({
   {
     "nvim-lualine/lualine.nvim", -- Status line
     dependencies = {
-      "kyazdani42/nvim-web-devicons", -- Icons for nvim-tree
+      "nvim-tree/nvim-web-devicons", -- Icons for nvim-tree
     }
   },
   { -- Documentation generation
