@@ -29,7 +29,7 @@ lazy.setup({
     version = "nightly", -- optional, updated every week. (see issue #1193)
     event = "BufEnter"
   },
-  "akinsho/bufferline.nvim", -- Buffer line
+  -- "akinsho/bufferline.nvim", -- Buffer line
   "moll/vim-bbye", -- Bbye allows you to do delete buffers (close files) 
                    -- without closing your windows or messing up your layout
   {
