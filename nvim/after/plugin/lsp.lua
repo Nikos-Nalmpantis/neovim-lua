@@ -3,10 +3,16 @@ if not ok then
   return
 end
 
+local ok2, lspconfig = pcall(require, "lspconfig")
+if not ok2 then
+  return
+end
+
 lsp.preset("recommended")
 
 lsp.ensure_installed({
   "pylsp",
+  "ruff_lsp",
 })
 
 lsp.set_preferences {
@@ -46,6 +52,7 @@ end)
 
 local cmp = require("cmp")
 local cmp_mappings = lsp.defaults.cmp_mappings({
+  ["<CR>"] = cmp.mapping.confirm({select=false}),
   ["<C-Space>"] = cmp.mapping.complete()
 })
 
@@ -54,6 +61,29 @@ lsp.setup_nvim_cmp {
 }
 
 lsp.nvim_workspace()
+
+lspconfig.pylsp.setup {
+  settings = {
+    pylsp = {
+      plugins = {
+        pycodestyle = {
+          ignore = {"W391", "W503"},
+          maxLineLength = 120
+        }
+      }
+    }
+  }
+}
+
+lspconfig.ruff_lsp.setup {
+  init_options = {
+    settings = {
+      args = {
+        line_length = 120
+      }
+    }
+  }
+}
 
 lsp.setup()
 
