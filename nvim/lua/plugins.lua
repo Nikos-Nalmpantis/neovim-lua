@@ -84,6 +84,16 @@ lazy.setup({
     },
     version = "1.x.x", -- recommended
   },
+  {
+    "SmiteshP/nvim-navbuddy",
+    dependencies = {
+        "neovim/nvim-lspconfig",
+        "SmiteshP/nvim-navic",
+        "MunifTanjim/nui.nvim",
+        "numToStr/Comment.nvim",        -- Optional
+        "nvim-telescope/telescope.nvim" -- Optional
+    }
+  },
 
   -- Telescope
   {
@@ -114,6 +124,17 @@ lazy.setup({
       "rafamadriz/friendly-snippets",
     }
   },
+
+  -- LuaSnip
+  {
+    "L3MON4D3/LuaSnip",
+    build = "make install_jsregexp",
+    version = "1.2.*",
+    dependencies = {
+      "friendly-snippets",
+    },
+  },
+  { "rafamadriz/friendly-snippets", lazy = true },
 
   -- Treesitter
   {
