@@ -11,8 +11,9 @@ end
 lsp.preset("recommended")
 
 lsp.ensure_installed({
-  "pylsp",
-  "ruff_lsp",
+  -- "pylsp",
+  -- "ruff_lsp",
+  "pyright"
 })
 
 lsp.set_preferences {
@@ -62,24 +63,43 @@ lsp.setup_nvim_cmp {
 
 lsp.nvim_workspace()
 
-lspconfig.pylsp.setup {
-  settings = {
-    pylsp = {
-      plugins = {
-        pycodestyle = {
-          ignore = {"W391", "W503"},
-          maxLineLength = 120
-        }
-      }
-    }
-  }
-}
+-- lspconfig.pylsp.setup {
+--   settings = {
+--     pylsp = {
+--       plugins = {
+--         pycodestyle = {
+--           ignore = {
+--             "E402", -- Module level import not at top of the file
+--             "F541", -- f-string is missing placeholders
+--             "W391", -- Blank line at the end of file
+--             "W503", -- Line break occurred before a binary operator
+--           },
+--           maxLineLength = 120
+--         }
+--       }
+--     }
+--   }
+-- }
+--
+-- lspconfig.ruff_lsp.setup {
+--   init_options = {
+--     settings = {
+--       args = {
+--         line_length = 120
+--       }
+--     }
+--   }
+-- }
 
-lspconfig.ruff_lsp.setup {
-  init_options = {
-    settings = {
-      args = {
-        line_length = 120
+lspconfig.pyright.setup {
+  settings = {
+    python = {
+      analysis = {
+        autoImportCompletions = true,
+        autoSearchPaths = true,
+        diagnosticMode = 'openFilesOnly',
+        useLibraryCodeForTypes = true,
+        typeCheckingMode = 'off'
       }
     }
   }
