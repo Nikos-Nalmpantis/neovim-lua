@@ -67,15 +67,15 @@ lazy.setup({
   },
   "NvChad/nvim-colorizer.lua", -- Colorize hexes and color names
   "kdheepak/tabline.nvim",
-  {
-    "Exafunction/codeium.vim",
-    config = function ()
-      -- Change '<C-g>' here to any keycode you like.
-      vim.keymap.set("i", "<C-g>", function ()
-        return vim.fn["codeium#Accept"]()
-      end, { expr = true })
-    end
-  },
+  -- {
+  --   "Exafunction/codeium.vim",
+  --   config = function ()
+  --     -- Change '<C-g>' here to any keycode you like.
+  --     vim.keymap.set("i", "<C-g>", function ()
+  --       return vim.fn["codeium#Accept"]()
+  --     end, { expr = true })
+  --   end
+  -- },
   {
     "mrcjkb/haskell-tools.nvim",
     dependencies = {
@@ -83,6 +83,16 @@ lazy.setup({
       "nvim-telescope/telescope.nvim", -- optional
     },
     version = "1.x.x", -- recommended
+  },
+  {
+    "SmiteshP/nvim-navbuddy",
+    dependencies = {
+        "neovim/nvim-lspconfig",
+        "SmiteshP/nvim-navic",
+        "MunifTanjim/nui.nvim",
+        "numToStr/Comment.nvim",        -- Optional
+        "nvim-telescope/telescope.nvim" -- Optional
+    }
   },
 
   -- Telescope
@@ -114,6 +124,17 @@ lazy.setup({
       "rafamadriz/friendly-snippets",
     }
   },
+
+  -- LuaSnip
+  {
+    "L3MON4D3/LuaSnip",
+    build = "make install_jsregexp",
+    version = "1.2.*",
+    dependencies = {
+      "friendly-snippets",
+    },
+  },
+  { "rafamadriz/friendly-snippets", lazy = true },
 
   -- Treesitter
   {

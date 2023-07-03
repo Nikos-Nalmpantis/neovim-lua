@@ -105,7 +105,7 @@ local diff = {
 
 local modes = {
 	'mode', fmt = function(str) return str:sub(1, 1) end,
-	color = { bg = "#fab387		", fg = colors.black },
+	color = { bg = "#fab387", fg = colors.black },
 	separator = { left = "", right = "" },
 }
 
@@ -138,6 +138,13 @@ local lsp = {
 	separator = { left = "", right = "" },
 	color = { bg = "#f38ba8", fg = colors.black },
 }
+
+local location = {
+	'location',
+	color = { bg = colors.white, fg = colors.blue },
+	separator = { left = "", right = "" },
+}
+
 
 lualine.setup {
 	options = {
@@ -186,6 +193,7 @@ lualine.setup {
 		lualine_z = {
 			dia,
 			lsp,
+      location,
 		}
 	},
 	inactive_sections = {

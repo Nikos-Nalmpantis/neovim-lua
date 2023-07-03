@@ -11,8 +11,9 @@ end
 lsp.preset("recommended")
 
 lsp.ensure_installed({
-  "pylsp",
-  "ruff_lsp",
+  -- "pylsp",
+  -- "ruff_lsp",
+  "pyright"
 })
 
 lsp.set_preferences {
@@ -43,16 +44,16 @@ lsp.on_attach(function(client, bufnr)
   local bind = vim.keymap.set
 
   bind("n", "gd", "<cmd>lua require'telescope.builtin'.lsp_definitions()<cr>", bufopt)
-  bind("n", "K", "<cmd>Lspsaga hover_doc<cr>", bufopt)
-  bind("n", "<leader>ca", "<cmd>Lspsaga code_action<cr>", bufopt)
   bind("n", "<leader>lf", function() vim.lsp.buf.format({ async = true }) end, bufopt)
-  bind("n", "<leader>dl", "<cmd>Lspasaga diagnostic_jump_next<cr>", bufopt)
-  bind("n", "<leader>dh", "<cmd>Lspasaga diagnostic_jump_prev<cr>", bufopt)
+  -- bind("n", "K", "<cmd>Lspsaga hover_doc<cr>", bufopt)
+  -- bind("n", "<leader>ca", "<cmd>Lspsaga code_action<cr>", bufopt)
+  -- bind("n", "<leader>dl", "<cmd>Lspasaga diagnostic_jump_next<cr>", bufopt)
+  -- bind("n", "<leader>dh", "<cmd>Lspasaga diagnostic_jump_prev<cr>", bufopt)
 end)
 
 local cmp = require("cmp")
 local cmp_mappings = lsp.defaults.cmp_mappings({
-  ["<CR>"] = cmp.mapping.confirm({select=false}),
+  ["<CR>"] = cmp.mapping.confirm({ select = false }),
   ["<C-Space>"] = cmp.mapping.complete()
 })
 
@@ -62,24 +63,43 @@ lsp.setup_nvim_cmp {
 
 lsp.nvim_workspace()
 
-lspconfig.pylsp.setup {
-  settings = {
-    pylsp = {
-      plugins = {
-        pycodestyle = {
-          ignore = {"W391", "W503"},
-          maxLineLength = 120
-        }
-      }
-    }
-  }
-}
+-- lspconfig.pylsp.setup {
+--   settings = {
+--     pylsp = {
+--       plugins = {
+--         pycodestyle = {
+--           ignore = {
+--             "E402", -- Module level import not at top of the file
+--             "F541", -- f-string is missing placeholders
+--             "W391", -- Blank line at the end of file
+--             "W503", -- Line break occurred before a binary operator
+--           },
+--           maxLineLength = 120
+--         }
+--       }
+--     }
+--   }
+-- }
+--
+-- lspconfig.ruff_lsp.setup {
+--   init_options = {
+--     settings = {
+--       args = {
+--         line_length = 120
+--       }
+--     }
+--   }
+-- }
 
-lspconfig.ruff_lsp.setup {
-  init_options = {
-    settings = {
-      args = {
-        line_length = 120
+lspconfig.pyright.setup {
+  settings = {
+    python = {
+      analysis = {
+        autoImportCompletions = true,
+        autoSearchPaths = true,
+        diagnosticMode = 'openFilesOnly',
+        useLibraryCodeForTypes = true,
+        typeCheckingMode = 'off'
       }
     }
   }
