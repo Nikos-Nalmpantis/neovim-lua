@@ -97,6 +97,7 @@ local mappings = {
   ["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
   ["P"] = { "<cmd>Telescope projects<cr>", "Projects" },
   ["r"] = { "<cmd>Telescope oldfiles<cr>", "Recent files" },
+  ["B"] = { "<cmd>:!black %<cr>", "Black" },
 
   p = {
     name = "Packer",
@@ -116,6 +117,10 @@ local mappings = {
     p = { "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", "Preview Hunk" },
     r = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", "Reset Hunk" },
     R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer" },
+    t = {
+      "<cmd>lua require 'gitsigns'.toggle_current_line_blame()<cr>",
+      "Toggle current line blame"
+    },
     s = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage Hunk" },
     u = {
       "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>",
