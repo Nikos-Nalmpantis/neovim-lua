@@ -44,16 +44,16 @@ lsp.on_attach(function(client, bufnr)
   local bind = vim.keymap.set
 
   bind("n", "gd", "<cmd>lua require'telescope.builtin'.lsp_definitions()<cr>", bufopt)
-  bind("n", "K", "<cmd>Lspsaga hover_doc<cr>", bufopt)
-  bind("n", "<leader>ca", "<cmd>Lspsaga code_action<cr>", bufopt)
   bind("n", "<leader>lf", function() vim.lsp.buf.format({ async = true }) end, bufopt)
-  bind("n", "<leader>dl", "<cmd>Lspasaga diagnostic_jump_next<cr>", bufopt)
-  bind("n", "<leader>dh", "<cmd>Lspasaga diagnostic_jump_prev<cr>", bufopt)
+  -- bind("n", "K", "<cmd>Lspsaga hover_doc<cr>", bufopt)
+  -- bind("n", "<leader>ca", "<cmd>Lspsaga code_action<cr>", bufopt)
+  -- bind("n", "<leader>dl", "<cmd>Lspasaga diagnostic_jump_next<cr>", bufopt)
+  -- bind("n", "<leader>dh", "<cmd>Lspasaga diagnostic_jump_prev<cr>", bufopt)
 end)
 
 local cmp = require("cmp")
 local cmp_mappings = lsp.defaults.cmp_mappings({
-  ["<CR>"] = cmp.mapping.confirm({select=false}),
+  ["<CR>"] = cmp.mapping.confirm({ select = false }),
   ["<C-Space>"] = cmp.mapping.complete()
 })
 
