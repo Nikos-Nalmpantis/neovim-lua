@@ -98,6 +98,7 @@ local mappings = {
   ["P"] = { "<cmd>Telescope projects<cr>", "Projects" },
   ["r"] = { "<cmd>Telescope oldfiles<cr>", "Recent files" },
   ["B"] = { "<cmd>:!black %<cr>", "Black" },
+  ["S"] = { "<cmd>setlocal spell spelllang=en_us<cr>", "Spellcheck" },
 
   p = {
     name = "Packer",
