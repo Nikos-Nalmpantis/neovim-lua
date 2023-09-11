@@ -94,6 +94,7 @@ lazy.setup({
         "nvim-telescope/telescope.nvim" -- Optional
     }
   },
+  "simrat39/rust-tools.nvim", -- Rust
 
   -- Telescope
   {
