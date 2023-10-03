@@ -1,11 +1,16 @@
-local ok, indent_blankline = pcall(require, "indent_blankline")
+local ok, indent_blankline = pcall(require, "ibl")
 if not ok then
   return
 end
 
 indent_blankline.setup {
-  char = '·', -- Basic Char
-  context_char = '⍿', -- Char when inside indentantion
-  show_current_context = true, -- Changes to context_char when indsiede indentantion
-  show_current_context_start = false, -- Underscores show current context start
+  indent = {
+    char = '·', -- Basic Char
+    tab_char = "⍿"
+  },
+  scope = {
+    char = '⍿', -- Char when inside indentantion
+    show_start = false,
+    show_end = false,
+  }
 }

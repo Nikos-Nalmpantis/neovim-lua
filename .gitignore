@@ -42,5 +42,3 @@ luac.out
 # Custom
 # plugin/
 # **/plugin/
-
-**/lazy-lock.json

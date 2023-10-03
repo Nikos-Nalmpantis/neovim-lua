@@ -44,6 +44,7 @@ lazy.setup({
   {
     "lukas-reineke/indent-blankline.nvim", -- Indents Balnklines
     event = "BufEnter",
+    main = "ibl",
   },
   {
     "nvim-lualine/lualine.nvim", -- Status line
