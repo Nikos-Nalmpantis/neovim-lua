@@ -26,8 +26,8 @@ lazy.setup({
     dependencies = {
       "nvim-tree/nvim-web-devicons", -- optional, for file icons
     },
-    version = "nightly", -- optional, updated every week. (see issue #1193)
-    event = "BufEnter"
+    version = "*",
+    lazy = false,
   },
   -- "akinsho/bufferline.nvim", -- Buffer line
   "moll/vim-bbye", -- Bbye allows you to do delete buffers (close files) 
@@ -144,7 +144,7 @@ lazy.setup({
     build = ":TSUpdate",
   },
   "p00f/nvim-ts-rainbow",
-  "JoosepAlviste/nvim-ts-context-commentstring",
+  -- "JoosepAlviste/nvim-ts-context-commentstring",
 
   defaults = {
     lazy = true, -- every plugin is lazy-loaded by default

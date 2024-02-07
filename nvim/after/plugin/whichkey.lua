@@ -92,7 +92,7 @@ local mappings = {
   ["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
   ["P"] = { "<cmd>Telescope projects<cr>", "Projects" },
   ["r"] = { "<cmd>Telescope oldfiles<cr>", "Recent files" },
-  ["B"] = { "<cmd>:!black %<cr>", "Black" },
+  ["B"] = { "<cmd>:!ruff format %<cr>", "Ruff format (Black)" },
   ["S"] = { "<cmd>setlocal spell spelllang=en_us<cr>", "Spellcheck" },
 
   p = {
