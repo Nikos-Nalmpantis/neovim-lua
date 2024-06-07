@@ -96,6 +96,7 @@ lazy.setup({
     }
   },
   "simrat39/rust-tools.nvim", -- Rust
+  "almo7aya/openingh.nvim",
 
   -- Telescope
   {
