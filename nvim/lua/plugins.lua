@@ -103,6 +103,10 @@ lazy.setup({
       "kevinhwang91/promise-async"
     }
   },
+  {
+    "codota/tabnine-nvim",
+    build = "./dl_binaries.sh"
+  },
 
   -- Telescope
   {
