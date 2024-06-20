@@ -38,7 +38,7 @@ lsp.on_attach(function(client, bufnr)
     vim.cmd("TSBufDisable highilight")
   end
 
-  vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
+  vim.api.nvim_set_option_value("omnifunc", "v:lua.vim.lsp.omnifunc", { buf = bufnr})
 
   local bufopt = { noremap = true, silent = true, buffer = bufnr }
   local bind = vim.keymap.set
