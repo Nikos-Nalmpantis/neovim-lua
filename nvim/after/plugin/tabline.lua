@@ -1,5 +1,5 @@
-local ok, tabline = pcall(require, "tabline")
-if not ok then
+local tabline_ok, tabline = pcall(require, "tabline")
+if not tabline_ok then
   return
 end
 

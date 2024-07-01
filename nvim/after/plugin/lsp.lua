@@ -1,10 +1,10 @@
-local ok, lsp = pcall(require, "lsp-zero")
-if not ok then
+local lsp_ok, lsp = pcall(require, "lsp-zero")
+if not lsp_ok then
   return
 end
 
-local ok2, lspconfig = pcall(require, "lspconfig")
-if not ok2 then
+local lspconfig_ok, lspconfig = pcall(require, "lspconfig")
+if not lspconfig_ok then
   return
 end
 
@@ -51,7 +51,11 @@ lsp.on_attach(function(client, bufnr)
   -- bind("n", "<leader>dh", "<cmd>Lspasaga diagnostic_jump_prev<cr>", bufopt)
 end)
 
-local cmp = require("cmp")
+local cmp_ok, cmp = pcall(require, "cmp")
+if not cmp_ok then
+  return
+end
+
 local cmp_mappings = lsp.defaults.cmp_mappings({
   ["<CR>"] = cmp.mapping.confirm({ select = false }),
   ["<C-Space>"] = cmp.mapping.complete()

@@ -1,5 +1,5 @@
-local ok, toggleterm = pcall(require, "toggleterm")
-if not ok then
+local toggleterm_ok, toggleterm = pcall(require, "toggleterm")
+if not toggleterm_ok then
 	return
 end
 
@@ -38,7 +38,11 @@ end
 
 vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
 
-local Terminal = require("toggleterm.terminal").Terminal
+local terminal_ok, terminal = pcall(require, "toggleterm.terminal")
+if not terminal_ok then
+  return
+end
+local Terminal = terminal.Terminal
 local lazygit = Terminal:new({ cmd = "lazygit", hidden = true })
 
 function _LAZYGIT_TOGGLE()

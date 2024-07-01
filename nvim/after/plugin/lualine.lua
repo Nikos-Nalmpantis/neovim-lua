@@ -1,10 +1,10 @@
-local ok, lualine = pcall(require, 'lualine')
-if not ok then
+local lualine_ok, lualine = pcall(require, 'lualine')
+if not lualine_ok then
   return
 end
 
-local ok2, tabline = pcall(require, 'tabline')
-if not ok2 then
+local tabline_ok, tabline = pcall(require, 'tabline')
+if not tabline_ok then
   return
 end
 

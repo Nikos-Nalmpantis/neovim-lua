@@ -1,9 +1,12 @@
-local ok, alpha = pcall(require, "alpha")
-if not ok then
+local alpha_ok, alpha = pcall(require, "alpha")
+if not alpha_ok then
 	return
 end
 
-local dashboard = require("alpha.themes.dashboard")
+local dashboard_ok, dashboard = pcall(require, "alpha.themes.dashboard")
+if not dashboard_ok then
+	return
+end
 dashboard.section.header.val = {
   [[                                                          ]],
   [[                                                          ]],
@@ -46,9 +49,12 @@ local function footer()
     .. "  🧙"
 
   -- Quote
-  local fortune = require "alpha.fortune"
-  local quote = table.concat(fortune(), "\n")
+  local fortune_ok, fortune = pcall(require, "alpha.fortune")
+  if not fortune_ok then
+    return
+  end
 
+  local quote = table.concat(fortune(), "\n")
   local footer_text = plugins_text .. "\n" .. quote
 
   return footer_text

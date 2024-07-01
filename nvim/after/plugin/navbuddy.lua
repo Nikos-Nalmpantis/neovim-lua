@@ -1,10 +1,10 @@
-local ok, navbuddy = pcall(require, "nvim-navbuddy")
-if not ok then
+local navbuddy_ok, navbuddy = pcall(require, "nvim-navbuddy")
+if not navbuddy_ok then
   return
 end
 
-local ok2, actions= pcall(require, "nvim-navbuddy.actions")
-if not ok2 then
+local actions_ok, actions= pcall(require, "nvim-navbuddy.actions")
+if not actions_ok then
   return
 end
 
