@@ -85,7 +85,6 @@ local mappings = {
   ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer toggle" },
   [","] = { "<cmd>NvimTreeFocus<cr>", "Explorer focus" },
   ["w"] = { "<cmd>w!<CR>", "Save" },
-  ["q"] = { "<cmd>q!<CR>", "Quit" },
   ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
   ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
   ["f"] = { "<cmd>Telescope find_files<cr>", "Find files" },
@@ -169,6 +168,14 @@ local mappings = {
     f = { "<cmd>TZFocus<cr>", "Focus" },
     m = { "<cmd>TZMinimalist<cr>", "Minimalist" },
     a = { "<cmd>TZAtaraxis<cr>", "Ataraxis" },
+  },
+
+  q = {
+    name = "Persistence",
+    s = { "<cmd>lua require('persistence').load()<CR>", "Restore Session" },
+    l = { "<cmd>lua require('persistence').load({ last = true })<CR>", "Restore Last Session" },
+    d = { "<cmd>lua require('persistence').stop()<CR>", "Don't Save Current Session" },
+    q = { "<cmd>qa<CR>", "Close Session" },
   },
 
   s = {
