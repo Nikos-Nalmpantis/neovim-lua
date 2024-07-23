@@ -61,7 +61,15 @@ lazy.setup({
   "ahmedkhalf/project.nvim", -- Project managment utils
   "akinsho/toggleterm.nvim", -- Plugin to persist and toggle multiple
   "Pocco81/true-zen.nvim", -- Focus mode
-  "folke/which-key.nvim", -- Key bindings previes
+  -- Key bindings previews
+  {
+    "folke/which-key.nvim",
+    dependencies = "echasnovski/mini.icons",
+    event = "VeryLazy",
+    opts = {
+      preset = "helix",
+    },
+  },
   { -- Markdown Preview
     "iamcco/markdown-preview.nvim",
     build = function() vim.fn["mkdp#util#install"]() end,
