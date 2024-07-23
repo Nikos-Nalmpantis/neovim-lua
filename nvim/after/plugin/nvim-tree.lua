@@ -1,9 +1,12 @@
-local ok, nvim_tree = pcall(require, "nvim-tree")
-if not ok then
+local nvim_tree_ok, nvim_tree = pcall(require, "nvim-tree")
+if not nvim_tree_ok then
   return
 end
 
-local api = require('nvim-tree.api')
+local api_ok, api = pcall(require, 'nvim-tree.api')
+if not api_ok then
+  return
+end
 
 local on_attach = function(bufnr)
 
@@ -170,7 +173,11 @@ local function open_nvim_tree(data)
   vim.cmd.cd(data.file)
 
   -- open the tree
-  require("nvim-tree.api").tree.open()
+  local _nvim_tree_ok, _nvim_tree = pcall(require, "nvim-tree.api")
+  if not _nvim_tree_ok then
+    return
+  end
+  _nvim_tree.tree.open()
 end
 
 vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })

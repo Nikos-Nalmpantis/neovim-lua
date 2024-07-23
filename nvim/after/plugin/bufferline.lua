@@ -1,5 +1,5 @@
-local ok, bufferline = pcall(require, "bufferline")
-if not ok then
+local bufferline_ok, bufferline = pcall(require, "bufferline")
+if not bufferline_ok then
   return
 end
 
@@ -17,11 +17,9 @@ bufferline.setup {
         style = "icon",
         icon = "▎"
     },
-    buffer_close_icon = "",
-    -- buffer_close_icon = '',
+    buffer_close_icon = '',
     modified_icon = "●",
     close_icon = "",
-    -- close_icon = '',
     left_trunc_marker = "",
     right_trunc_marker = "",
     --- name_formatter can be used to change the buffer's label in the bufferline.

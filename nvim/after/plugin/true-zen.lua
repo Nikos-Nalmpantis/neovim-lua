@@ -1,5 +1,5 @@
-local ok, true_zen = pcall(require, "true-zen")
-if not ok then
+local true_zen_ok, true_zen = pcall(require, "true-zen")
+if not true_zen_ok then
   return
 end
 

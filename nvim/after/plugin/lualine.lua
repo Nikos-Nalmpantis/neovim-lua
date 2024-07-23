@@ -1,10 +1,10 @@
-local ok, lualine = pcall(require, 'lualine')
-if not ok then
+local lualine_ok, lualine = pcall(require, 'lualine')
+if not lualine_ok then
   return
 end
 
-local ok2, tabline = pcall(require, 'tabline')
-if not ok2 then
+local tabline_ok, tabline = pcall(require, 'tabline')
+if not tabline_ok then
   return
 end
 
@@ -111,7 +111,7 @@ local modes = {
 
 local function getLspName()
 	local msg = 'No Active Lsp'
-	local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
+	local buf_ft = vim.api.nvim_get_option_value('filetype', { buf = 0 })
 	local clients = vim.lsp.get_clients()
 	if next(clients) == nil then
 		return msg

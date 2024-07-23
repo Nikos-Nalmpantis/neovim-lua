@@ -3,14 +3,14 @@ vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decr
 vim.o.foldlevelstart = 99
 vim.o.foldenable = true
 
--- Using ufo provider need remap `zR` and `zM`. If Neovim is 0.6.1, remap yourself
-vim.keymap.set('n', 'zR', require('ufo').openAllFolds)
-vim.keymap.set('n', 'zM', require('ufo').closeAllFolds)
-
-local ok, ufo = pcall(require, 'ufo')
-if not ok then
+local ufo_ok, ufo = pcall(require, 'ufo')
+if not ufo_ok then
   return
 end
+
+-- Using ufo provider need remap `zR` and `zM`. If Neovim is 0.6.1, remap yourself
+vim.keymap.set('n', 'zR', ufo.openAllFolds)
+vim.keymap.set('n', 'zM', ufo.closeAllFolds)
 
 local handler = function(virtText, lnum, endLnum, width, truncate)
     local newVirtText = {}
