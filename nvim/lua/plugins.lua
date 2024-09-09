@@ -67,7 +67,7 @@ lazy.setup({
     dependencies = "echasnovski/mini.icons",
     event = "VeryLazy",
     opts = {
-      preset = "helix",
+      preset = "modern",
     },
   },
   { -- Markdown Preview
