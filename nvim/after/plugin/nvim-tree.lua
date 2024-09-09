@@ -141,10 +141,10 @@ nvim_tree.setup {
   filters = {
     dotfiles = false,
     custom = {},
+    git_ignored = false,
   },
   git = {
     enable = true,
-    ignore = true,
     timeout = 500,
   },
   view = {
